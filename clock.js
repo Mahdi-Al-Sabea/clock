@@ -13,17 +13,27 @@ function showTime(){
     let timePeriod=document.querySelector('.time-period');
     let date=document.querySelector('.date');
     
-    hours.innerText=currentDate.getHours();
-    minutes.innerText=currentDate.getMinutes();
-    seconds.innerText=currentDate.getSeconds();
+    hours.innerText=hoursFormat(addZero(currentDate.getHours()));
+    minutes.innerText=addZero(currentDate.getMinutes());
+    seconds.innerText=addZero(currentDate.getSeconds());
     timePeriod.innerText=getTimeSpan(currentDate.getHours());
 
     date.innerHTML=`${currentDate.getMonth()}/${currentDate.getUTCDate()}/${currentDate.getFullYear()}`;
 
    
+    function addZero(time){
+        if(time<10){
+           return '0'+time;
+        }
+        else
+        return time
+    }
     
-    
-    
+    function hoursFormat(currenthours){
+        if(currenthours>12){
+            return currenthours-12;
+        }
+    }
     
     function getTimeSpan(currentHours){
         if(currentHours>12){
