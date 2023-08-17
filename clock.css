@@ -6,13 +6,25 @@
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Ensure at least full viewport height */
+    background-color: black;
 }
 
 .clock div{
+    color: green;
+    font-family: 'Calculator', sans-serif;
+                                                
     display: inline;
-    font-size: 60px;
+    font-size: 55px;
     margin: 8px;
+}
+
+.date{
+    color: green;
+    font-family: 'Calculator', sans-serif;
+    display: block;
+    font-size: 70px;
 }
