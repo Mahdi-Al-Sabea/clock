@@ -4,7 +4,7 @@
 function showTime(){
     
     const currentDate=new Date();
-    currentDate.setMonth(8);
+    
 
     
     let hours=document.querySelector('.hours');
@@ -13,7 +13,7 @@ function showTime(){
     let timePeriod=document.querySelector('.time-period');
     let date=document.querySelector('.date');
     
-    hours.innerText=hoursFormat(addZero(currentDate.getHours()));
+    hours.innerText=addZero(hoursFormat(currentDate.getHours()));
     minutes.innerText=addZero(currentDate.getMinutes());
     seconds.innerText=addZero(currentDate.getSeconds());
     timePeriod.innerText=getTimeSpan(currentDate.getHours());
@@ -31,8 +31,12 @@ function showTime(){
     
     function hoursFormat(currenthours){
         if(currenthours>12){
-            return currenthours-12;
+            currenthours=currenthours-12;
         }
+        if(currenthours===0){
+            currenthours=12;
+        }
+        return currenthours;
     }
     
     function getTimeSpan(currentHours){
